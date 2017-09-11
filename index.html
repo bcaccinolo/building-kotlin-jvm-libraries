@@ -8,7 +8,6 @@
 <meta name="author" content="Eric Wendelin">
 <title>Building Kotlin JVM Libraries</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css">
 <link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
 <link rel="stylesheet" href="https://guides.gradle.org/css/styles.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700|Source+Code+Pro:500">
@@ -108,7 +107,7 @@
 <div class="listingblock">
 <div class="title">Kotlin project structure</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">my-kotlin-library
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">my-kotlin-library
 ├── build.gradle.kts
 └── src
     ├── main
@@ -128,7 +127,7 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">$ mkdir -p my-kotlin-library/src/main/kotlin/org/example
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">$ mkdir -p my-kotlin-library/src/main/kotlin/org/example
 $ cd my-kotlin-library</code></pre>
 </div>
 </div>
@@ -138,7 +137,7 @@ $ cd my-kotlin-library</code></pre>
 <div class="listingblock">
 <div class="title">src/main/kotlin/org/example/MyLibrary.kt</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">package org.example
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">package org.example
 
 /**
  * The `Language` type defines a programming language with a name and hotness score.
@@ -152,7 +151,7 @@ class MyLibrary {
     /**
      * @return data relating to the Kotlin {@code Lanugage}.
      */
-    fun kotlinLanguage() = Language(&quot;Kotlin&quot;, 10)
+    fun kotlinLanguage() = Language("Kotlin", 10)
 }</code></pre>
 </div>
 </div>
@@ -162,8 +161,8 @@ class MyLibrary {
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">plugins {
-    kotlin(&quot;jvm&quot;, &quot;1.1.4-3&quot;) <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
+    kotlin("jvm", "1.1.4-3") <i class="conum" data-value="1"></i><b>(1)</b>
 }
 
 repositories {
@@ -171,7 +170,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin(&quot;stdlib&quot;, &quot;1.1.4-3&quot;)) <i class="conum" data-value="3"></i><b>(3)</b>
+    implementation(kotlin("stdlib", "1.1.4-3")) <i class="conum" data-value="3"></i><b>(3)</b>
 }</code></pre>
 </div>
 </div>
@@ -206,10 +205,10 @@ dependencies {
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="diff"><span class="line comment">plugins {</span>
-    `build-scan` <i class="conum" data-value="1"></i><b>(1)</b>
-    kotlin(&quot;jvm&quot;, &quot;1.1.4-3&quot;)
-<span class="line comment">}</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-diff" data-lang="diff">plugins {
++    `build-scan` <i class="conum" data-value="1"></i><b>(1)</b>
+     kotlin("jvm", "1.1.4-3")
+}</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -226,9 +225,9 @@ dependencies {
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">buildScan {
-    setLicenseAgreementUrl(&quot;https://gradle.com/terms-of-service&quot;) <i class="conum" data-value="1"></i><b>(1)</b>
-    setLicenseAgree(&quot;yes&quot;)
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">buildScan {
+    setLicenseAgreementUrl("https://gradle.com/terms-of-service") <i class="conum" data-value="1"></i><b>(1)</b>
+    setLicenseAgree("yes")
 
     publishAlways() <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
@@ -252,7 +251,7 @@ dependencies {
 <div class="listingblock">
 <div class="title">Compile Kotlin sources</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">$ gradle compileKotlin
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">$ gradle compileKotlin
 
 &gt; Task :compileKotlin
 Using kotlin incremental compilation
@@ -288,10 +287,10 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="diff"><span class="line comment">dependencies {</span>
-    implementation(kotlin(&quot;stdlib&quot;, &quot;1.1.4-3&quot;))
-    testImplementation(&quot;junit:junit:4.12&quot;) <i class="conum" data-value="1"></i><b>(1)</b>
-<span class="line comment">}</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-diff" data-lang="diff">dependencies {
+     implementation(kotlin("stdlib", "1.1.4-3"))
++    testImplementation("junit:junit:4.12") <i class="conum" data-value="1"></i><b>(1)</b>
+}</code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -308,14 +307,14 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 <div class="listingblock">
 <div class="title">src/test/kotlin/org/example/MyLibraryTest.kt</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">package org.example
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">package org.example
 
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
 class MyLibraryTest {
     @Test fun testMyLanguage() {
-        assertEquals(&quot;Kotlin&quot;, MyLibrary().kotlinLanguage().name)
+        assertEquals("Kotlin", MyLibrary().kotlinLanguage().name)
         assertEquals(10, MyLibrary().kotlinLanguage().hotness)
     }
 }</code></pre>
@@ -327,7 +326,7 @@ class MyLibraryTest {
 <div class="listingblock">
 <div class="title">Execute tests</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">$ gradle test
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">$ gradle test
 
 &gt; Task :compileKotlin
 Using kotlin incremental compilation
@@ -362,18 +361,18 @@ https://gradle.com/s/hxz67nlm3lejk</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">// Using buildscript {} instead of plugins {} due to https://github.com/Kotlin/dokka/issues/146
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">// Using buildscript {} instead of plugins {} due to https://github.com/Kotlin/dokka/issues/146
 buildscript {
     repositories {
         jcenter()
     }
 
     dependencies {
-        classpath(&quot;org.jetbrains.dokka:dokka-gradle-plugin:0.9.15&quot;)
+        classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.15")
     }
 }
 apply {
-    plugin(&quot;org.jetbrains.dokka&quot;)
+    plugin("org.jetbrains.dokka")
 }</code></pre>
 </div>
 </div>
@@ -386,9 +385,9 @@ apply {
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">val dokka by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class) {    <i class="conum" data-value="1"></i><b>(1)</b>
-    outputFormat = &quot;html&quot;
-    outputDirectory = &quot;$buildDir/javadoc&quot;
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">val dokka by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class) {    <i class="conum" data-value="1"></i><b>(1)</b>
+    outputFormat = "html"
+    outputDirectory = "$buildDir/javadoc"
 }</code></pre>
 </div>
 </div>
@@ -406,7 +405,7 @@ apply {
 <div class="listingblock">
 <div class="title">Generate docs with Dokka</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">$ gradle dokka
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">$ gradle dokka
 
 &gt; Task :dokka
 No documentation for org.example.MyLibrary (MyLibrary.kt:11)
@@ -434,13 +433,13 @@ https://gradle.com/s/buf6pl5vrjqt4</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">import org.gradle.api.plugins.JavaBasePlugin
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">import org.gradle.api.plugins.JavaBasePlugin
 import org.gradle.jvm.tasks.Jar
 
 val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i><b>(1)</b>
     group = JavaBasePlugin.DOCUMENTATION_GROUP
-    description = &quot;Assembles Kotlin docs with Dokka&quot;
-    classifier = &quot;javadoc&quot;
+    description = "Assembles Kotlin docs with Dokka"
+    classifier = "javadoc"
     from(dokka) <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
 </div>
@@ -477,11 +476,11 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="diff"><span class="line comment">plugins {</span>
-    `build-scan`
-    `maven-publish`
-    kotlin(&quot;jvm&quot;, &quot;1.1.4-3&quot;)
-<span class="line comment">}</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-diff" data-lang="diff">plugins {
+     `build-scan`
++    `maven-publish`
+     kotlin("jvm", "1.1.4-3")
+}</code></pre>
 </div>
 </div>
 </div>
@@ -493,8 +492,8 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">group = &quot;org.example&quot;
-version = &quot;0.0.1&quot;</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">group = "org.example"
+version = "0.0.1"</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -503,7 +502,7 @@ version = &quot;0.0.1&quot;</code></pre>
 <div class="listingblock">
 <div class="title">settings.gradle</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">rootProject.name = <span class="string"><span class="delimiter">'</span><span class="content">my-kotlin-library</span><span class="delimiter">'</span></span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">rootProject.name = "my-kotlin-library"</code></pre>
 </div>
 </div>
 </div>
@@ -515,16 +514,16 @@ version = &quot;0.0.1&quot;</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="kotlin">publishing {
+<pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">publishing {
     publications {
-        create(&quot;default&quot;, MavenPublication::class.java) { <i class="conum" data-value="1"></i><b>(1)</b>
-            from(components.getByName(&quot;java&quot;))
+        create("default", MavenPublication::class.java) { <i class="conum" data-value="1"></i><b>(1)</b>
+            from(components.getByName("java"))
             artifact(dokkaJar) <i class="conum" data-value="2"></i><b>(2)</b>
         }
     }
     repositories {
         maven {
-            url = uri(&quot;$buildDir/repository&quot;) <i class="conum" data-value="3"></i><b>(3)</b>
+            url = uri("$buildDir/repository") <i class="conum" data-value="3"></i><b>(3)</b>
         }
     }
 }</code></pre>
@@ -552,7 +551,7 @@ version = &quot;0.0.1&quot;</code></pre>
 <div class="listingblock">
 <div class="title">Publish to local repository</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">$ gradle publish
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">$ gradle publish
 
 &gt; Task :dokka
 No documentation for org.example.MyLibrary (MyLibrary.kt:11)
@@ -576,7 +575,7 @@ https://gradle.com/s/ideifb3epyoz6</code></pre>
 <div class="listingblock">
 <div class="title">Local Maven repository</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="shell">build/repository
+<pre class="highlightjs highlight"><code class="language-console" data-lang="console">build/repository
 └── org
     └── example
         └── my-kotlin-library
@@ -633,8 +632,11 @@ https://gradle.com/s/ideifb3epyoz6</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-11 16:34:07 +00:00
+Last updated 2017-09-11 18:36:26 +00:00
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/kotlin.min.js"></script>
+<script>hljs.initHighlighting()</script>
 </body>
 </html>
