@@ -68,8 +68,8 @@ val sourcesJar by tasks.creating(Jar::class) {
 }
 
 publishing {
-    publications {
-        create("default", MavenPublication::class.java) {
+    (publications) {
+        "default"(MavenPublication::class) {
             from(components.getByName("java"))
             artifact(sourcesJar)
             artifact(dokkaJar)

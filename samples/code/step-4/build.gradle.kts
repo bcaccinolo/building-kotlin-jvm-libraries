@@ -68,8 +68,8 @@ val dokkaJar by tasks.creating(Jar::class) {
 
 // tag::configure-publishing[]
 publishing {
-    publications {
-        create("default", MavenPublication::class.java) { // <1>
+    (publications) {
+        "default"(MavenPublication::class) { // <1>
             from(components.getByName("java"))
             artifact(dokkaJar) // <2>
         }
