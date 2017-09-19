@@ -84,7 +84,7 @@
 <p>A text editor or IDE</p>
 </li>
 <li>
-<p>A <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a> (JDK), version 1.7 or better</p>
+<p>A <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a> (JDK), version 1.8 or better</p>
 </li>
 <li>
 <p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.1 or better</p>
@@ -459,7 +459,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <p>Try running <code>gradle dokkaJar</code> and see if you can find the javadoc JAR based on what you know so far.</p>
 </div>
 <div class="paragraph">
-<p>We could optionally also generate a <code>"sources"</code> JAR using the same pattern from <code>java.sourceSets.getByName("main").allSource</code>.</p>
+<p>We could optionally also generate a <code>"sources"</code> JAR using the same pattern from <code>java.sourceSets["main"].allSource</code>.</p>
 </div>
 </div>
 </div>
@@ -516,7 +516,7 @@ version = "0.0.1"</code></pre>
 <pre class="highlightjs highlight"><code class="language-kotlin" data-lang="kotlin">publishing {
     publications {
         create("default", MavenPublication::class.java) { <i class="conum" data-value="1"></i><b>(1)</b>
-            from(components.getByName("java"))
+            from(components["java"])
             artifact(dokkaJar) <i class="conum" data-value="2"></i><b>(2)</b>
         }
     }
@@ -631,7 +631,7 @@ https://gradle.com/s/ideifb3epyoz6</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-09-14 20:11:22 +00:00
+Last updated 2017-09-19 00:03:02 +00:00
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/github.min.css">
