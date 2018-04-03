@@ -212,7 +212,7 @@ class MyLibrary {
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-    kotlin("jvm") version "1.2.10" <i class="conum" data-value="1"></i><b>(1)</b>
+    kotlin("jvm") version "1.2.31" <i class="conum" data-value="1"></i><b>(1)</b>
 }
 
 repositories {
@@ -220,7 +220,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.2.10")) <i class="conum" data-value="3"></i><b>(3)</b>
+    implementation(kotlin("stdlib", "1.2.31")) <i class="conum" data-value="3"></i><b>(3)</b>
 }</code></pre>
 </div>
 </div>
@@ -257,7 +257,7 @@ dependencies {
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">plugins {
 +    `build-scan` <i class="conum" data-value="1"></i><b>(1)</b>
-     kotlin("jvm") version "1.2.10"
+     kotlin("jvm") version "1.2.31"
 }</code></pre>
 </div>
 </div>
@@ -338,7 +338,7 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">dependencies {
-     implementation(kotlin("stdlib", "1.2.10"))
+     implementation(kotlin("stdlib", "1.2.31"))
 +    testImplementation("junit:junit:4.12") <i class="conum" data-value="1"></i><b>(1)</b>
 }</code></pre>
 </div>
@@ -411,19 +411,7 @@ https://gradle.com/s/hxz67nlm3lejk</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Using buildscript {} instead of plugins {} due to https://github.com/Kotlin/dokka/issues/146
-buildscript {
-    repositories {
-        jcenter()
-    }
-
-    dependencies {
-        classpath("org.jetbrains.dokka:dokka-gradle-plugin:0.9.15")
-    }
-}
-apply {
-    plugin("org.jetbrains.dokka")
-}</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">    id("org.jetbrains.dokka") version "0.9.16"</code></pre>
 </div>
 </div>
 </div>
@@ -528,7 +516,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <pre class="highlightjs highlight"><code class="language-diff hljs" data-lang="diff">plugins {
      `build-scan`
 +    `maven-publish`
-     kotlin("jvm") version "1.2.10"
+     kotlin("jvm") version "1.2.31"
 }</code></pre>
 </div>
 </div>
