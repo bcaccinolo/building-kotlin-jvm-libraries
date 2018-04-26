@@ -3,14 +3,14 @@
 <head><link crossorigin href="//assets.gradle.com" rel="preconnect">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
 <link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
-<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.5.2.css">
+<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.7.css">
 <link rel="apple-touch-icon" sizes="180x180" href="https://guides.gradle.org/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="https://guides.gradle.org/icon/manifest.json">
 <link rel="mask-icon" href="https://guides.gradle.org/icon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="https://guides.gradle.org/icon/favicon.ico">
-<script defer src="https://guides.gradle.org/js/guides.js"></script>
+<script defer src="https://guides.gradle.org/js/guides-4.7.js"></script>
 <script defer src="https://guides.gradle.org/js/set-time-to-complete-text.js"></script>
 <script async src="https://guides.gradle.org/js/autotrack.js"></script>
 
@@ -137,7 +137,7 @@
 <p>A <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a> (JDK), version 1.8 or better</p>
 </li>
 <li>
-<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.6 or better</p>
+<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.7 or better</p>
 </li>
 </ul>
 </div>
@@ -315,7 +315,7 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/4.6/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
+<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/4.7/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -506,7 +506,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <h2 id="step_4_publish_to_local_repo"><a class="anchor" href="#step_4_publish_to_local_repo"></a><a class="link" href="#step_4_publish_to_local_repo">Step 4: Publish to local repo</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/4.6/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
+<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/4.7/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
 </div>
 <div class="sect2">
 <h3 id="apply_the_maven_publish_plugin"><a class="anchor" href="#apply_the_maven_publish_plugin"></a><a class="link" href="#apply_the_maven_publish_plugin">Apply the maven-publish plugin</a></h3>
