@@ -1,14 +1,9 @@
-// tag::dokka-imports[]
-import org.gradle.jvm.tasks.Jar
-// end::dokka-imports[]
-
+// tag::apply-dokka-plugin[]
 plugins {
-    `build-scan`
     kotlin("jvm") version "1.2.31"
-    // tag::apply-dokka-plugin[]
     id("org.jetbrains.dokka") version "0.9.16"
-    // end::apply-dokka-plugin[]
 }
+// end::apply-dokka-plugin[]
 
 repositories {
     jcenter()
@@ -34,7 +29,7 @@ val dokka by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class) {    // 
 // end::configure-dokka-plugin[]
 
 // tag::configure-dokka-jar[]
-val dokkaJar by tasks.creating(Jar::class) { // <1>
+val dokkaJar by tasks.creating(org.gradle.jvm.tasks.Jar::class) { // <1>
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Assembles Kotlin docs with Dokka"
     classifier = "javadoc"

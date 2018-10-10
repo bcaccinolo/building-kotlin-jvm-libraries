@@ -20,6 +20,11 @@ dependencies {
 }
 // end::configure-dependencies[]
 
+// tag::set-version[]
+group = "org.example"  <4>
+version = "1.0-SNAPSHOT"
+// end::set-version[]
+
 // tag::configure-build-scan[]
 buildScan {
     setLicenseAgreementUrl("https://gradle.com/terms-of-service") // <1>

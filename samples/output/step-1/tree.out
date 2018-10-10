@@ -1,5 +1,6 @@
-my-kotlin-library
+{sample-proj-name}
 ├── build.gradle.kts
+├── settings.gradle.kts
 └── src
     ├── main
     │   └── kotlin
