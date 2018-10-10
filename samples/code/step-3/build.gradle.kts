@@ -14,13 +14,6 @@ dependencies {
     testImplementation("junit:junit:4.12")
 }
 
-buildScan {
-    setLicenseAgreementUrl("https://gradle.com/terms-of-service")
-    setLicenseAgree("yes")
-
-    publishAlways()
-}
-
 // tag::configure-dokka-plugin[]
 val dokka by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class) {    // <1>
     outputFormat = "html"
