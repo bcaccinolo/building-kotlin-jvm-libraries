@@ -39,17 +39,4 @@ class SamplesFunctionalTest extends AbstractSamplesFunctionalTest {
         result.task(':dokka').outcome == SUCCESS
         result.task(':dokkaJar').outcome == SUCCESS
     }
-
-    def "can publish Kotlin library Jars"() {
-        given:
-        copySampleCode('step-4')
-
-        when:
-        def result = succeeds('publish')
-
-        then:
-        result.task(':jar').outcome == SUCCESS
-        result.task(':dokkaJar').outcome == SUCCESS
-        result.task(':publish').outcome == SUCCESS
-    }
 }

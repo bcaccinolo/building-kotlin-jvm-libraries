@@ -116,10 +116,7 @@ Start by inserting a dependency on JUnit in the build script:
 .build.gradle.kts
 [source,diff]
 ----
-dependencies {
-    implementation(kotlin("stdlib", "1.2.31"))
-    testImplementation("junit:junit:4.12")  // <1>
-}
+include::{samplescodedir}/step-2/build.gradle.kts[tags=configure-dependencies]
 ----
 <1> Adds a compile-time test dependency on JUnit
 
@@ -186,12 +183,12 @@ As a last step, you will package the HTML API documentation into a JAR that can 
 ----
 include::{samplescodedir}/step-3/build.gradle.kts[tags=configure-dokka-jar]
 ----
-<1> Creates a new `dokkaJar` task of type `Jar`.
+<1> Creates a new `dokkaJar` task of type `Jar`. You don't need to qualify `Jar` because its package is auto imported by Gradle.
 <2> Specifies that the `Jar` task should archive the {user-manual}more_about_tasks.html#sec:up_to_date_checks[declared outputs] of the `dokka` task. This automatically sets up a task dependency from `dokkaJar` to `dokka`, so no `dependsOn()` configuration is needed.
 
 When you run `./gradlew dokkaJar`, you should find the packaged documentation at `build/libs/{sample-proj-name}-1.0-SNAPSHOT-javadoc.jar`.
 
-TIP: You can add `import` lines to the build script for both the `DokkaTask` and `Jar` task types Just be aware that they must go at the top of the build script, before everything else.
+TIP: You can add an `import` line to the build script for the `DokkaTask` task type. Just be aware that it must go at the top of the build script, before everything else.
 
 == See what other plugins are applied to your build
 

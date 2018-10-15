@@ -3,7 +3,7 @@
 plugins {
 // end::apply-kotlin-plugin[]
 // tag::apply-kotlin-plugin[]
-    kotlin("jvm") version "1.2.31" // <1>
+    kotlin("jvm") version "1.2.61" // <1>
 }
 // end::apply-kotlin-plugin[]
 
@@ -13,7 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.2.31")) // <3>
+    implementation(kotlin("stdlib")) // <3>
 }
 // end::configure-dependencies[]
 
