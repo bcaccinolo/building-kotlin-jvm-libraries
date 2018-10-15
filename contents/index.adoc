@@ -140,7 +140,7 @@ $ ./gradlew check
 
 You can see the results of the tests by opening the HTML test report generated at `build/reports/tests/test/index.html`.
 
-You can also run the `test` task directly — `check` depends on it — but `check` will also run any other verification steps your build has, such as static code analysis.
+TIP: If you want to run just the unit tests, then you can execute the `test` task directly. `check`, which depends on `test`, will also run any other verification steps your build has, such as static code analysis.
 
 == Add docs with Dokka
 
@@ -193,6 +193,33 @@ When you run `./gradlew dokkaJar`, you should find the packaged documentation at
 
 TIP: You can add `import` lines to the build script for both the `DokkaTask` and `Jar` task types Just be aware that they must go at the top of the build script, before everything else.
 
+== See what other plugins are applied to your build
+
+You may not realize this, but the Kotlin Plugin also applies the Java Plugin. You can see this by creating a build scan and looking at the list of plugins applied to the build.
+
+To do that, run this command:
+
+[source,console]
+----
+$ ./gradlew build --scan
+----
+
+You'll see output similar to the following once the build has finished:
+
+[listing]
+----
+...
+Publishing build scan...
+https://gradle.com/s/vah36msduhfiu
+----
+
+Just open the equivalent link from your build in a browser and you'll see a report that gives you a lot of information about that build. For now, select the _Plugins_ view in the left-hand navigation, as shown here:
+
+image::build-scan-plugins.png[]
+
+Remember that you only explicitly declared the Kotlin and Dokka Plugins, but there are several more in that list. Of most interest are the {user-manual}java_plugin.html[Java Plugin] and {user-manual}base_plugin.html[Base Plugin] as they provide many of the conventions and tasks that you'll use day to day in your Kotlin builds. For example, the Base Plugin provides the `build` and `clean` tasks.
+
+Since the Kotlin Plugin applies the Java Plugin, it's also well worth looking at the user manual's chapter on {user-manual}building_java_projects.html[Building Java & JVM projects] to learn more about JVM-based builds.
 
 == Next Steps
 
