@@ -218,7 +218,7 @@
 <p>A <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a> (JDK), version 1.8 or better</p>
 </li>
 <li>
-<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.10-rc-2 or better</p>
+<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 5.0 or better</p>
 </li>
 </ul>
 </div>
@@ -293,7 +293,7 @@ class MyLibrary {
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
-    kotlin("jvm") version "1.2.31" <i class="conum" data-value="1"></i><b>(1)</b>
+    kotlin("jvm") version "1.2.71" <i class="conum" data-value="1"></i><b>(1)</b>
 }
 
 repositories {
@@ -301,7 +301,7 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib", "1.2.31")) <i class="conum" data-value="3"></i><b>(3)</b>
+    implementation(kotlin("stdlib")) <i class="conum" data-value="3"></i><b>(3)</b>
 }</code></pre>
 </div>
 </div>
@@ -357,8 +357,8 @@ dependencies {
 <div class="title">build.gradle.kts</div>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">buildScan {
-    setLicenseAgreementUrl("https://gradle.com/terms-of-service") <i class="conum" data-value="1"></i><b>(1)</b>
-    setLicenseAgree("yes")
+    termsOfServiceUrl = "https://gradle.com/terms-of-service" <i class="conum" data-value="1"></i><b>(1)</b>
+    termsOfServiceAgree = "yes"
 
     publishAlways() <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
@@ -396,7 +396,7 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/4.10-rc-2/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
+<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/5.0/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -492,7 +492,7 @@ https://gradle.com/s/hxz67nlm3lejk</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">    id("org.jetbrains.dokka") version "0.9.16"</code></pre>
+<pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">    id("org.jetbrains.dokka") version "0.9.17"</code></pre>
 </div>
 </div>
 </div>
@@ -504,7 +504,7 @@ https://gradle.com/s/hxz67nlm3lejk</code></pre>
 <div class="listingblock">
 <div class="title">build.gradle.kts</div>
 <div class="content">
-<pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">val dokka by tasks.getting(org.jetbrains.dokka.gradle.DokkaTask::class) {    <i class="conum" data-value="1"></i><b>(1)</b>
+<pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">tasks.dokka {    <i class="conum" data-value="1"></i><b>(1)</b>
     outputFormat = "html"
     outputDirectory = "$buildDir/javadoc"
 }</code></pre>
@@ -558,7 +558,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
     group = JavaBasePlugin.DOCUMENTATION_GROUP
     description = "Assembles Kotlin docs with Dokka"
     classifier = "javadoc"
-    from(dokka) <i class="conum" data-value="2"></i><b>(2)</b>
+    from(tasks.dokka) <i class="conum" data-value="2"></i><b>(2)</b>
 }</code></pre>
 </div>
 </div>
@@ -587,7 +587,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <h2 id="step_4_publish_to_local_repo"><a class="anchor" href="#step_4_publish_to_local_repo"></a><a class="link" href="#step_4_publish_to_local_repo">Step 4: Publish to local repo</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/4.10-rc-2/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
+<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/5.0/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
 </div>
 <div class="sect2">
 <h3 id="apply_the_maven_publish_plugin"><a class="anchor" href="#apply_the_maven_publish_plugin"></a><a class="link" href="#apply_the_maven_publish_plugin">Apply the maven-publish plugin</a></h3>
@@ -615,10 +615,10 @@ version = "0.0.1"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The project name is set by the root project directory name by default, but it is best practice to make it explicit. This is done in a <code>settings.gradle</code> file at the project root.</p>
+<p>The project name is set by the root project directory name by default, but it is best practice to make it explicit. This is done in a <code>settings.gradle.kts</code> file at the project root.</p>
 </div>
 <div class="listingblock">
-<div class="title">settings.gradle</div>
+<div class="title">settings.gradle.kts</div>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">rootProject.name = "my-kotlin-library"</code></pre>
 </div>
@@ -634,7 +634,7 @@ version = "0.0.1"</code></pre>
 <div class="content">
 <pre class="prettyprint highlight"><code class="language-kotlin" data-lang="kotlin">publishing {
     publications {
-        create("default", MavenPublication::class.java) { <i class="conum" data-value="1"></i><b>(1)</b>
+        create&lt;MavenPublication&gt;("default") { <i class="conum" data-value="1"></i><b>(1)</b>
             from(components["java"])
             artifact(dokkaJar) <i class="conum" data-value="2"></i><b>(2)</b>
         }
