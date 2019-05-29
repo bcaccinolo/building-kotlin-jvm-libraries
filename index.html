@@ -246,7 +246,7 @@
 <p>A <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit</a> (JDK), version 1.8 or better</p>
 </li>
 <li>
-<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 5.4.1 or better</p>
+<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 5.0 or better</p>
 </li>
 </ul>
 </div>
@@ -424,7 +424,7 @@ https://gradle.com/s/vah36msduhfiu</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/5.4.1/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
+<p>For example, it is important to know that the Kotlin plugin applies Gradle&#8217;s Java plugin under the covers (we can see this in the "Plugins" section of the build scan). If we look at the <a href="https://docs.gradle.org/5.0/userguide/java_plugin.html">docs for the Java plugin</a>, we learn about all of the conventions it applies for things like Javadocs and packaging we&#8217;ll do later in this guide.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -615,7 +615,7 @@ val dokkaJar by tasks.creating(Jar::class) { <i class="conum" data-value="1"></i
 <h2 id="step_4_publish_to_local_repo"><a class="anchor" href="#step_4_publish_to_local_repo"></a><a class="link" href="#step_4_publish_to_local_repo">Step 4: Publish to local repo</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/5.4.1/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
+<p>Now our library is ready to share with the world. We&#8217;re going to publish it locally with the <a href="https://docs.gradle.org/5.0/userguide/publishing_maven.html">maven-publish plugin</a> just to keep things simple, but another popular choice is the <a href="https://plugins.gradle.org/plugin/com.jfrog.bintray">Gradle Bintray Plugin</a>. Their documentation has <a href="https://github.com/bintray/bintray-examples/tree/master/gradle-bintray-plugin-examples">several samples</a> you can use if you&#8217;re interested.</p>
 </div>
 <div class="sect2">
 <h3 id="apply_the_maven_publish_plugin"><a class="anchor" href="#apply_the_maven_publish_plugin"></a><a class="link" href="#apply_the_maven_publish_plugin">Apply the maven-publish plugin</a></h3>
