@@ -5,7 +5,7 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     `build-scan`
     `maven-publish`
-    kotlin("jvm") version "1.2.71"     // <1>
+    id("org.jetbrains.kotlin.jvm") version "1.3.60" // <1>
     id("org.jetbrains.dokka") version "0.9.17"
 }
 

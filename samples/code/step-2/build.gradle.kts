@@ -1,6 +1,6 @@
 plugins {
     `build-scan`
-    kotlin("jvm") version "1.2.71"
+    id("org.jetbrains.kotlin.jvm") version "1.3.60"
 }
 
 repositories {

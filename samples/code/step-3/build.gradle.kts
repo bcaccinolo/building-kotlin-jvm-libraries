@@ -4,7 +4,7 @@ import org.gradle.jvm.tasks.Jar
 
 plugins {
     `build-scan`
-    kotlin("jvm") version "1.2.71"
+    id("org.jetbrains.kotlin.jvm") version "1.3.60"
     // tag::apply-dokka-plugin[]
     id("org.jetbrains.dokka") version "0.9.17"
     // end::apply-dokka-plugin[]

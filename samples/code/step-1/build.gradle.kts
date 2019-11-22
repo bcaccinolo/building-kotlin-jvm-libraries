@@ -5,7 +5,7 @@ plugins {
 // end::apply-kotlin-plugin[]
     `build-scan`
 // tag::apply-kotlin-plugin[]
-    kotlin("jvm") version "1.2.71" // <1>
+    id("org.jetbrains.kotlin.jvm") version "1.3.60" // <1>
 }
 // end::apply-kotlin-plugin[]
 // end::apply-build-scan-plugin[]
